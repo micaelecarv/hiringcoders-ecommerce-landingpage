@@ -1,4 +1,5 @@
-<h1 align="center"> Desafio #1: Ecommerce - Como colocar uma loja online? Site Oficial / Landing page </h1>
+<h1 align="center"> Desafio #1: Ecommerce - Como colocar uma loja online? 
+	Site Oficial / Landing page </h1>
 
 ## Descrição do Projeto
 
