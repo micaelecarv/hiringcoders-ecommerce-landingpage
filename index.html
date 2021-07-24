@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="./style.css">
   <!-- JS -->
   <script src="./main.js"></script>
+  <!-- JQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"/>  
@@ -34,12 +36,96 @@
           <li><a class="title" href="#courses">Cursos</a></li>
           <li><a class="title" href="#testimonials">Depoimentos</a></li>
           <li><a class="title" href="#contact">Inscreva-se</a></li>
+          <div id="carrinho" onmouseover="showCartItems()" onmouseleave="hideCartItems()">
+            <img class="cart-icon" src="/assets/icons/shopping-cart.png" alt="cart">
+          </div>
         </ul>
+      </div>
+      <div id="cart" class="cart" onmouseover="showCartItems()" onmouseleave="hideCartItems()">
+        <button class="finish-purchase" style="cursor: pointer;" onclick="openModal()">Finalizar compra</button>
       </div>
     </nav>
   </header>
 
+  
   <main>
+    <div id="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content-purchase">
+          <form class="input-form-purchase" onsubmit="function nada(){return true}">
+            <div style="margin: auto;">
+              <h1 style="margin-bottom: 62px; text-align: center;">Cadastro</h1>
+            </div>
+            <div>
+              <div class="input-form-items">
+                <div>
+                  Nome Completo:
+                </div>
+                <div>
+                  <input class="input-item" type="text" name="name" id="name" style="margin-left: 12px; width: 300px;"
+                  placeholder="Insira seu Nome">
+                </div>
+              </div>
+              <div class="input-form-items">
+                <div>
+                  Telefone:
+                </div>
+                <div>
+                  <input class="input-item" type="tel" name="phone" id="phone" style="margin-left: 12px; width: 300px;"
+                  placeholder="Insira seu Telefone">
+                </div>
+              </div>
+              <div class="input-form-items">
+                <div>
+                  CPF:
+                </div>
+                <div>
+                  <input class="input-item" type="text" name="cpf" id="cpf" style="margin-left: 12px; width: 300px;"
+                  placeholder="Insira seu CPF">
+                </div>
+              </div>
+              <div class="input-form-items">
+                <div>
+                  E-mail:
+                </div>
+                <div>
+                  <input class="input-item" type="email" name="mail-purchase" id="mail-purchase" style="margin-left: 12px; width: 300px;"
+                  placeholder="Insira seu e-mail">
+                </div>
+              </div>
+              <div class="input-form-items">
+                <div>
+                  Endereço:
+                </div>
+                <div>
+                  <input class="input-item" type="text" name="address" id="address" style="margin-left: 12px; width: 300px;"
+                  placeholder="Insira seu Endereço">
+                </div>
+              </div>
+              <div class="input-form-items">
+                <div>
+                  Complemento:
+                </div>
+                <div>
+                  <input class="input-item" type="text" name="address-other" id="address-other" style="margin-left: 12px; width: 300px;"
+                  placeholder="Insira o complemento">
+                </div>
+              </div>
+            </div>
+            <input class="button-submit" type="submit" value="Comprar">
+          </form>
+          <div class="modal-divisor"></div>
+          <div class="modal-purchase">
+            <h1 style="margin-bottom: 62px">Minha sacola</h1>
+            <div id="modal-purchase-items">
+              <div id="total-price"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <section class="section" id="home">
       <div class="home-container-grid">
         <div class="image">
@@ -53,7 +139,7 @@
           <p>
             Embarque conosco nessa jornada de descobertas e aprendizado contínuo.
           </p>
-          <a class="button" href="#">Conheça a Cecil!</a>
+          <a class="button" >Conheça a Cecil!</a>
         </div>
       </div>
     </section>
@@ -80,7 +166,7 @@
               </p>
               <h3 style="text-decoration: line-through; font-size: 14px;">De R$ 2300,00 por</h3>
               <h4 class="real-price">R$ 2100,00</h4>
-              <a class="button" href="#">Comprar</a>
+              <a id="item-pd" style="cursor: pointer;" data-price="2100" name="Product Design" class="button" onclick="addToCart(this.id, this.name, this.getAttribute('data-price'))" >Comprar</a>
 
             </div>
             <div class="card">
@@ -91,7 +177,7 @@
               </p>
               <h3 style="text-decoration: line-through; font-size: 14px;">De R$ 4500,00 por:</h3>
               <h4 class="real-price">R$ 4200,00</h4>
-              <a class="button" href="#">Comprar</a>
+            <a id="item-dev_web" style="cursor: pointer;" data-price="4200" name="Desenvolvimento Web" class="button" onclick="addToCart(this.id, this.name, this.getAttribute('data-price'))" >Comprar</a>
 
             </div>
             <div class="card">
@@ -102,7 +188,7 @@
               </p>
               <h3 style="text-decoration: line-through; font-size: 14px;">De R$ 2800,00 por</h3>
               <h4 class="real-price">R$ 2500,00</h4>
-              <a class="button" href="#">Comprar</a>
+              <a id="item-pm" style="cursor: pointer;" data-price="2500" name="Product Management" class="button" onclick="addToCart(this.id, this.name, this.getAttribute('data-price'))" >Comprar</a>
             </div>
           </div>
         </div>
