@@ -41,7 +41,7 @@ function drawCart() {
   carrinhoInArray.map(item => {
     addItemToCart(item[1].name, item[1].value, item[0])
   })
-  $('#carrinho').append(`<p style="font-size:14px; text-align: center; border-radius: 50%; color: white; background-color: #FB0B4A; padding: 1px 3px 0px 2px;" class="items-count">${Object.keys(carrinho).length || ''}</p>`)
+  $('#carrinho').append(`<p style="font-size:14px; text-align: center; border-radius: 50%; color: white; background-color: #FB0B4A; padding: 1px 4px 2px 4px; visibility: ${Object.keys(carrinho).length != 0 ? 'unset' : 'hidden'}" class="items-count">${Object.keys(carrinho).length}</p>`)
 }
 
 function modalDrawItems(itemName, itemValue) {
@@ -103,6 +103,20 @@ function closeModal() {
   modal.style.display = "none";
   $('.cart-item-purchase').remove()
   $('#total-price').text('')
+}
+
+function recordPurchase(event) {
+  let userInfo = {
+    name: $('#purchase-name')[0].value,
+    phone: $('#purchase-phone')[0].value,
+    cpf: $('#purchase-cpf')[0].value,
+    email: $('#purchase-mail-purchase')[0].value,
+    address: $('#purchase-address')[0].value,
+    addressComplement: $('#purchase-address-other')[0].value,
+    purchase: carrinho
+  }
+  
+  localStorage.setItem('userInfo', JSON.stringify(userInfo))
 }
 
 // When the user clicks the button, open the modal 

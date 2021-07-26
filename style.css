@@ -84,6 +84,7 @@ h1 {
 
 #carrinho {
   display: flex;
+  align-items: center;
 }
 
 .grid li {
@@ -319,6 +320,11 @@ input::placeholder {
   margin-left: 42px;
   color: white;
   border-radius: 4px 4px 4px 4px;
+}
+
+.submit-purchase {
+  margin: auto;
+  cursor: pointer;
 }
 
 .input-form {

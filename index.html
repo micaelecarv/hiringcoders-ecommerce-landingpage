@@ -54,7 +54,7 @@
       <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
         <div class="modal-content-purchase">
-          <form class="input-form-purchase" onsubmit="function nada(){return true}">
+          <form id="purchase-form" action="/" class="input-form-purchase" onsubmit="recordPurchase()">
             <div style="margin: auto;">
               <h1 style="margin-bottom: 62px; text-align: center;">Cadastro</h1>
             </div>
@@ -64,7 +64,7 @@
                   Nome Completo:
                 </div>
                 <div>
-                  <input class="input-item" type="text" name="name" id="name" style="margin-left: 12px; width: 300px;"
+                  <input class="input-item" type="text" name="name" id="purchase-name" style="margin-left: 12px; width: 300px;"
                   placeholder="Insira seu Nome">
                 </div>
               </div>
@@ -73,7 +73,7 @@
                   Telefone:
                 </div>
                 <div>
-                  <input class="input-item" type="tel" name="phone" id="phone" style="margin-left: 12px; width: 300px;"
+                  <input class="input-item" type="tel" name="phone" id="purchase-phone" style="margin-left: 12px; width: 300px;"
                   placeholder="Insira seu Telefone">
                 </div>
               </div>
@@ -82,7 +82,7 @@
                   CPF:
                 </div>
                 <div>
-                  <input class="input-item" type="text" name="cpf" id="cpf" style="margin-left: 12px; width: 300px;"
+                  <input class="input-item" type="text" name="cpf" id="purchase-cpf" style="margin-left: 12px; width: 300px;"
                   placeholder="Insira seu CPF">
                 </div>
               </div>
@@ -91,7 +91,7 @@
                   E-mail:
                 </div>
                 <div>
-                  <input class="input-item" type="email" name="mail-purchase" id="mail-purchase" style="margin-left: 12px; width: 300px;"
+                  <input class="input-item" type="email" name="mail-purchase" id="purchase-mail-purchase" style="margin-left: 12px; width: 300px;"
                   placeholder="Insira seu e-mail">
                 </div>
               </div>
@@ -100,7 +100,7 @@
                   Endereço:
                 </div>
                 <div>
-                  <input class="input-item" type="text" name="address" id="address" style="margin-left: 12px; width: 300px;"
+                  <input class="input-item" type="text" name="address" id="purchase-address" style="margin-left: 12px; width: 300px;"
                   placeholder="Insira seu Endereço">
                 </div>
               </div>
@@ -109,12 +109,14 @@
                   Complemento:
                 </div>
                 <div>
-                  <input class="input-item" type="text" name="address-other" id="address-other" style="margin-left: 12px; width: 300px;"
+                  <input class="input-item" type="text" name="address-other" id="purchase-address-other" style="margin-left: 12px; width: 300px;"
                   placeholder="Insira o complemento">
                 </div>
               </div>
             </div>
-            <input class="button-submit" type="submit" value="Comprar">
+            <div style="display: flex; justify-content: center; width: 100%;">
+              <input class="button-submit submit-purchase" type="submit" value="Comprar">
+            </div>
           </form>
           <div class="modal-divisor"></div>
           <div class="modal-purchase">
