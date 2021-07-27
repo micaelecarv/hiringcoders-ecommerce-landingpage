@@ -42,8 +42,5 @@ Esse projeto será desenvolvido com as seguintes tecnologias:
 
 <h4 align="justify"> 🚧  Em construção...  🚧	</h4>
 
-<br>
-## :memo: Licença
 
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](.github/LICENSE.md) para mais detalhes.
 
